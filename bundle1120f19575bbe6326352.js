@@ -135,23 +135,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
 
 function tabChange(el) {
-  let about = document.getElementById('about');
-  let menu = document.getElementById('menu');
-  let contact = document.getElementById('contact');
-  let allCont = document.querySelector('.container');
-  menu.classList.remove('hidden');
-  if (el == 'one') {
+  let about = document.querySelector('#about');
+  let menu = document.querySelector('#menu');
+  let contact = document.querySelector('#contact');
+  let allCont = document.getElementsByClassName('container');
+  if (el === 'one') {
     console.log(el);
-    allCont.classList.add('hidden');
+    for (let i = 0; i < allCont.length; i++) {
+      allCont[i].classList.add('hidden');
+    }
     menu.classList.remove('hidden');
-  } else if (el == 'two') {
+  } else if (el === 'two') {
     console.log(el);
-    allCont.classList.add('hidden');
+    for (let i = 0; i < allCont.length; i++) {
+      allCont[i].classList.add('hidden');
+    }
     about.classList.remove('hidden');
-  } else if (el == 'three') {
+  } else if (el === 'three') {
     console.log(el);
-    allCont.classList.add('hidden');
+    for (let i = 0; i < allCont.length; i++) {
+      allCont[i].classList.add('hidden');
+    }
     contact.classList.remove('hidden');
+  } else {
+    console.log(el);
+    for (let i = 0; i < allCont.length; i++) {
+      allCont[i].classList.add('hidden');
+    }
+    menu.classList.remove('hidden');
   }
 }
 
@@ -184,6 +195,7 @@ const tabs = () => {
   tabOne.addEventListener('click', () => {
     tabActive = tabOne.className;
     (0,_tabChange__WEBPACK_IMPORTED_MODULE_0__["default"])(tabActive);
+    console.log(tabActive);
     if (tabOne.className == tabActive) {}
     tabTwo.classList.remove('active');
     tabThree.classList.remove('active');
@@ -236,9 +248,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
+___CSS_LOADER_EXPORT___.push([module.id, `html {
+  height: fit-content;
+}
+body {
   margin: 0;
   padding: 0;
+  height: fit-content;
   overflow-x: hidden;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -246,6 +262,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 #content {
   width: 100%;
   height: fit-content;
+  height: 100vh;
 }
 #nav {
   width: 100%;
@@ -258,7 +275,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 200px;
 }
 button {
   border: none;
@@ -280,11 +297,9 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
   gap: 10px;
   bottom: 0;
-  height: 30px;
-
+  height: 100px;
   width: 100%;
   color: white;
   background-position: top;
@@ -302,8 +317,8 @@ button:hover {
 #about {
   background-color: #f0bc5d;
   width: 100%;
-  height: 100%;
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -355,15 +370,15 @@ li {
   color: #2a3e75;
 }
 #contact {
-  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f0bc5d;
+  height: 100%;
   font-weight: 900;
   color: #2a3e75;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;EACV,kBAAkB;EAClB;wEACsE;AACxE;AACA;EACE,WAAW;EACX,mBAAmB;AACrB;AACA;EACE,WAAW;EACX,YAAY;AACd;AACA;EACE,2BAA2B;EAC3B,sBAAsB;EACtB,WAAW;EACX,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;AACf;AACA;EACE,YAAY;EACZ,aAAa;EACb,YAAY;EACZ,gBAAgB;EAChB,gBAAgB;EAChB,YAAY;EACZ,YAAY;EACZ,iBAAiB;AACnB;AACA;EACE,UAAU;AACZ;AACA;EACE,UAAU;AACZ;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,eAAe;EACf,SAAS;EACT,SAAS;EACT,YAAY;;EAEZ,WAAW;EACX,YAAY;EACZ,wBAAwB;EACxB,qBAAqB;AACvB;AACA;EACE,cAAc;EACd,qBAAqB;EACrB,gBAAgB;AAClB;AACA;EACE,cAAc;AAChB;AACA;;EAEE,yBAAyB;EACzB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,sBAAsB;EACtB,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;AACf;AACA;EACE,WAAW;EACX,SAAS;EACT,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,2BAA2B;EAC3B,yBAAyB;AAC3B;AACA;EACE,WAAW;EACX,SAAS;EACT,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,2BAA2B;EAC3B,yBAAyB;AAC3B;AACA;EACE,gBAAgB;EAChB,aAAa;EACb,yBAAyB;EACzB,cAAc;AAChB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,UAAU;EACV,iBAAiB;EACjB,oBAAoB;EACpB,kBAAkB;EAClB,eAAe;EACf,uBAAuB;EACvB,cAAc;AAChB;AACA;EACE,YAAY;EACZ,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,gBAAgB;EAChB,cAAc;AAChB","sourcesContent":["body {\r\n  margin: 0;\r\n  padding: 0;\r\n  overflow-x: hidden;\r\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\r\n    Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\r\n}\r\n#content {\r\n  width: 100%;\r\n  height: fit-content;\r\n}\r\n#nav {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.mainBut {\r\n  background-position: center;\r\n  background-size: cover;\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100px;\r\n}\r\nbutton {\r\n  border: none;\r\n  padding: 10px;\r\n  width: 100px;\r\n  font-weight: 700;\r\n  background: none;\r\n  color: azure;\r\n  opacity: 0.6;\r\n  transition: 500ms;\r\n}\r\nbutton:hover {\r\n  opacity: 1;\r\n}\r\n.active {\r\n  opacity: 1;\r\n}\r\n#footer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  position: fixed;\r\n  gap: 10px;\r\n  bottom: 0;\r\n  height: 30px;\r\n\r\n  width: 100%;\r\n  color: white;\r\n  background-position: top;\r\n  background-size: auto;\r\n}\r\n#atag {\r\n  color: #5075d9;\r\n  text-decoration: none;\r\n  transition: 0.5s;\r\n}\r\n#atag:hover {\r\n  color: #385194;\r\n}\r\n#menu,\r\n#about {\r\n  background-color: #f0bc5d;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-top: 0;\r\n}\r\n#list {\r\n  width: 100%;\r\n  margin: 0;\r\n  list-style: none;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 30px 0px 30px 10px;\r\n  border: 1px solid #385194;\r\n}\r\n#workTime {\r\n  width: 100%;\r\n  margin: 0;\r\n  list-style: none;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 30px 0px 30px 10px;\r\n  border: 1px solid #385194;\r\n}\r\nli {\r\n  font-weight: 600;\r\n  padding: 10px;\r\n  text-transform: uppercase;\r\n  color: #2a3e75;\r\n}\r\n.hidden {\r\n  display: none !important;\r\n}\r\n.container {\r\n  display: block;\r\n}\r\n\r\n#text {\r\n  margin-top: 0;\r\n  width: 70%;\r\n  padding-top: 30px;\r\n  padding-bottom: 50px;\r\n  text-align: center;\r\n  font-size: 10px;\r\n  text-overflow: ellipsis;\r\n  color: #2a3e75;\r\n}\r\n#contact {\r\n  height: 50vh;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background-color: #f0bc5d;\r\n  font-weight: 900;\r\n  color: #2a3e75;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;AACrB;AACA;EACE,SAAS;EACT,UAAU;EACV,mBAAmB;EACnB,kBAAkB;EAClB;wEACsE;AACxE;AACA;EACE,WAAW;EACX,mBAAmB;EACnB,aAAa;AACf;AACA;EACE,WAAW;EACX,YAAY;AACd;AACA;EACE,2BAA2B;EAC3B,sBAAsB;EACtB,WAAW;EACX,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;AACf;AACA;EACE,YAAY;EACZ,aAAa;EACb,YAAY;EACZ,gBAAgB;EAChB,gBAAgB;EAChB,YAAY;EACZ,YAAY;EACZ,iBAAiB;AACnB;AACA;EACE,UAAU;AACZ;AACA;EACE,UAAU;AACZ;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,SAAS;EACT,SAAS;EACT,aAAa;EACb,WAAW;EACX,YAAY;EACZ,wBAAwB;EACxB,qBAAqB;AACvB;AACA;EACE,cAAc;EACd,qBAAqB;EACrB,gBAAgB;AAClB;AACA;EACE,cAAc;AAChB;AACA;;EAEE,yBAAyB;EACzB,WAAW;EACX,aAAa;EACb,YAAY;EACZ,sBAAsB;EACtB,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;AACf;AACA;EACE,WAAW;EACX,SAAS;EACT,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,2BAA2B;EAC3B,yBAAyB;AAC3B;AACA;EACE,WAAW;EACX,SAAS;EACT,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,2BAA2B;EAC3B,yBAAyB;AAC3B;AACA;EACE,gBAAgB;EAChB,aAAa;EACb,yBAAyB;EACzB,cAAc;AAChB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,UAAU;EACV,iBAAiB;EACjB,oBAAoB;EACpB,kBAAkB;EAClB,eAAe;EACf,uBAAuB;EACvB,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,YAAY;EACZ,gBAAgB;EAChB,cAAc;AAChB","sourcesContent":["html {\r\n  height: fit-content;\r\n}\r\nbody {\r\n  margin: 0;\r\n  padding: 0;\r\n  height: fit-content;\r\n  overflow-x: hidden;\r\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\r\n    Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\r\n}\r\n#content {\r\n  width: 100%;\r\n  height: fit-content;\r\n  height: 100vh;\r\n}\r\n#nav {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.mainBut {\r\n  background-position: center;\r\n  background-size: cover;\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 200px;\r\n}\r\nbutton {\r\n  border: none;\r\n  padding: 10px;\r\n  width: 100px;\r\n  font-weight: 700;\r\n  background: none;\r\n  color: azure;\r\n  opacity: 0.6;\r\n  transition: 500ms;\r\n}\r\nbutton:hover {\r\n  opacity: 1;\r\n}\r\n.active {\r\n  opacity: 1;\r\n}\r\n#footer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  gap: 10px;\r\n  bottom: 0;\r\n  height: 100px;\r\n  width: 100%;\r\n  color: white;\r\n  background-position: top;\r\n  background-size: auto;\r\n}\r\n#atag {\r\n  color: #5075d9;\r\n  text-decoration: none;\r\n  transition: 0.5s;\r\n}\r\n#atag:hover {\r\n  color: #385194;\r\n}\r\n#menu,\r\n#about {\r\n  background-color: #f0bc5d;\r\n  width: 100%;\r\n  display: flex;\r\n  height: 100%;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-top: 0;\r\n}\r\n#list {\r\n  width: 100%;\r\n  margin: 0;\r\n  list-style: none;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 30px 0px 30px 10px;\r\n  border: 1px solid #385194;\r\n}\r\n#workTime {\r\n  width: 100%;\r\n  margin: 0;\r\n  list-style: none;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 30px 0px 30px 10px;\r\n  border: 1px solid #385194;\r\n}\r\nli {\r\n  font-weight: 600;\r\n  padding: 10px;\r\n  text-transform: uppercase;\r\n  color: #2a3e75;\r\n}\r\n.hidden {\r\n  display: none !important;\r\n}\r\n.container {\r\n  display: block;\r\n}\r\n\r\n#text {\r\n  margin-top: 0;\r\n  width: 70%;\r\n  padding-top: 30px;\r\n  padding-bottom: 50px;\r\n  text-align: center;\r\n  font-size: 10px;\r\n  text-overflow: ellipsis;\r\n  color: #2a3e75;\r\n}\r\n#contact {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background-color: #f0bc5d;\r\n  height: 100%;\r\n  font-weight: 900;\r\n  color: #2a3e75;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -959,4 +974,4 @@ document.body.appendChild(component());
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle953a0746be1b72564f9d.js.map
+//# sourceMappingURL=bundle1120f19575bbe6326352.js.map
